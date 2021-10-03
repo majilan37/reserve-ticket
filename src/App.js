@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect} from 'react'
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import Banner from "./components/Banner";
+import DownloadApp from "./components/DownloadApp";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import LastSection from "./components/LastSection";
+import SecondMain from "./components/SecondMain";
+import WhyWe from "./components/WhyWe";
+
 
 function App() {
+  useEffect(() => {
+    Aos.init({duration: 2000});
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col ">
+      <Header />
+      <Banner />
+      <main className='flex flex-col my-12 mx-auto'>
+        <WhyWe />
+        <SecondMain />
+      </main>
+      <DownloadApp />
+      <LastSection />
+      <Footer />
     </div>
   );
 }
